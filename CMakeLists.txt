@@ -12,9 +12,9 @@ set(CMAKE_CXX_LINK_FLAGS ${CMAKE_CXX_LINK_FLAGS} ${MPI_LINK_FLAGS})
 include_directories(${MPI_INCLUDE_PATH})
 
 add_subdirectory(pybind11)
-pybind11_add_module(mpi_lib mpi_lib.cpp)
+pybind11_add_module(mpi_lib src/mpi_lib.cpp)
 target_link_libraries(mpi_lib PRIVATE mpi)
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/pybind_calc.py
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/src/pybind_calc.py
   DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
 
